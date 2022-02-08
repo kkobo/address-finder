@@ -10,7 +10,36 @@
 </head>
 <body>
 	<h1>Headline</h1>
-	<p>Text.</p>
-	<script src="scripts/script.js"></script>
+	<form action="#" method="post" autocomplete="off" novalidate>
+		<fieldset>
+			<label for="name">Όνομα</label>
+			<input type="text" name="name" id="name" required><span></span>
+			<label for="surname">Επίθετο</label>
+			<input type="text" name="email" id="surname" required><span></span>
+			<label for="afm">ΑΦΜ</label>
+			<input type="text" name="afm" id="afm" required><span></span>
+		</fieldset>
+		<fieldset>
+			<label for="street">Οδός</label>
+			<input type="text" name="street" id="street" required><span></span>
+		</fieldset>
+		<fieldset>
+			<label for="number">Αριθμός</label>
+			<input type="text" name="number" id="number" required><span></span>
+		</fieldset>
+        <fieldset>
+			<label for="area">Περιοχή</label>
+			<input type="text" name="area" id="area" required><span></span>
+			<label for="age">Ηλικία</label>
+			<input type="text" name="age" id="age" required pattern="\b([1-9]|[1-9][0-9]|1[0-4][0-9]|150)\b"><span id="age-error"></span>
+		</fieldset>
+
+		<fieldset>
+			<button id="submit-btn">
+				Submit
+			</button>
+		</fieldset>
+	</form>
+	<script src="scripts/main.js"></script>
 </body>
 </html>

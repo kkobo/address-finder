@@ -1,0 +1,126 @@
+html {
+  font-size: 112.5%;
+  color: rgb(43, 48, 58); 
+}
+
+html * {
+  font-family: sans-serif;
+}
+
+/* body {
+  background: -webkit-linear-gradient(
+    top,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 31%,
+    rgba(33, 180, 226, 1) 69%,
+    rgba(183, 222, 237, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    top,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 31%,
+    rgba(33, 180, 226, 1) 69%,
+    rgba(183, 222, 237, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 31%,
+    rgba(33, 180, 226, 1) 69%,
+    rgba(183, 222, 237, 1) 100%
+  );
+} */
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.625rem;
+  margin-top: 0.625rem;
+}
+
+form {
+  width: 31rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+fieldset > * {  
+  margin-bottom: 0.625rem;
+}
+
+/* fieldset:nth-of-type(3) > * {
+    width: 42%;
+} */
+
+fieldset > label {
+ display: block;
+  width: 100%;
+}
+
+fieldset > input,
+fieldset > span {
+  display: inline-block;
+}
+
+fieldset > span {
+  width: 25%;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+fieldset > input {
+  border: 1px solid #E1E1E1;
+  padding: 0.625rem;
+  font-size: 1rem;
+  outline: none;
+  width: 50%;
+  margin-right: 0.625rem;
+}
+
+
+/* fieldset > label[for="age"],  */
+input#number,
+input#age
+{
+  width: 20%;
+}
+
+/* input:invalid {
+  border-color: rgba(214, 73, 51, 1); 
+  background-color: rgba(214, 73, 51, 0.3);
+} */
+
+input:focus:invalid {
+  outline: none;
+}
+
+fieldset > button {
+  width: 50%;
+  font-size: 1rem;
+  padding: 0.625rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  background-color: rgb(12, 124, 89);
+  color: white;
+}
+
+.error {
+  width: 47%;
+  font-size: 80%;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  color: white;
+  background-color: rgba(255, 0,0, 1);
+  border-radius: 5px;
+}
+
+.check {
+  text-align: left;
+  font-size: larger;
+  color: green;
+}
+
+.error#age-error {
+  width: 47%;
+}
