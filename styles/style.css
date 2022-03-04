@@ -44,6 +44,7 @@ h1 {
   text-align: center;
   margin-bottom: 3rem;
   margin-top: 0.625rem;
+  text: white;
 }
 
 main {
@@ -234,6 +235,8 @@ div.radio > fieldset:first-child {
 
 .addressExists {
   margin-bottom: 3rem;
+  background: #fcff4b;
+  color: black;
 }
 
 .addressExists > p {
@@ -248,4 +251,9 @@ div.radio > fieldset:first-child {
   width: fit-content;
 }
 
+#map {
+  height: 400px;
+  width: 100%;
+  z-index: 9999;
+}
 

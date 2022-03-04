@@ -25,6 +25,7 @@ const db = getDatabase(app);
 const searchForm = document.querySelector(".searchForm");
 const searchResults = document.getElementById("searchResults");
 
+
 searchForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   const searchField = document.getElementById("searchField");
@@ -45,12 +46,15 @@ searchForm.addEventListener("submit", function (evt) {
 	for(let personKey in personsObj) {
     const {name, surname, afm, street, number, area, age} = personsObj[personKey];
 
-	searchResults.innerHTML += `<li> Όνομα: ${name}, &nbsp; Επώνυμο: ${surname}, &nbsp; ΑΦΜ: ${afm} <br> 
+	searchResults.innerHTML += `<li > Όνομα: ${name}, &nbsp; Επώνυμο: ${surname}, &nbsp; ΑΦΜ: ${afm} <br> 
 	Διεύθυνση: ${street} ${number}, ${area}, &nbsp; Ηλικία: ${age}</li>`
 	}
 })
   evt.target.reset();
 });
+
+
+
 
 // const que = query(ref(db,'users'),orderByChild("name"),equalTo('Βούλα'));
 
