@@ -22,6 +22,7 @@ const modal = document.getElementById("myModal")
 modal.style.display = "flex";
 modal.style.flexDirection = "column";
 modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
 const modalText = [...modal.getElementsByTagName("p")];
 modalText.forEach(paragraph => paragraph.remove());
 
@@ -44,7 +45,7 @@ map.insertAdjacentHTML('beforebegin',`<p>Όνομα: ${name}</p><p>Επώνυμ�
     const coords = await getCoords(address) || { lat: 0, lng: 0 };
     
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 8,
+      zoom: 17,
       center: coords,
     });
     
@@ -53,10 +54,6 @@ map.insertAdjacentHTML('beforebegin',`<p>Όνομα: ${name}</p><p>Επώνυμ�
       map: map,
     });
   })();
-
-  
-
-
 }})
 
 
