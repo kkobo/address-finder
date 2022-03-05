@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set, push } from "firebase/database";
 import { getCoords } from ".";
 
+require('../styles/reset.css');
+require('../styles/style.css');
+
 const addressExists = document.getElementsByClassName("addressExists")[0];
 
 

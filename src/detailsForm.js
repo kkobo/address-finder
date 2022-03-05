@@ -1,4 +1,6 @@
 import { getCoords } from "./index.js";
+require('../styles/reset.css');
+require('../styles/style.css');
 
 const searchResults = document.getElementById("searchResults")
 

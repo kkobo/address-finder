@@ -8,6 +8,9 @@ import {
   get,
 } from "firebase/database";
 
+require('../styles/reset.css');
+require('../styles/style.css');
+
 const firebaseConfig = {
   apiKey: "AIzaSyAJx2YoU7kJgWzz6vzxeN_Prj_tIBZKb2Q",
   authDomain: "geocoding-340713.firebaseapp.com",
