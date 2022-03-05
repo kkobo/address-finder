@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set, push } from "firebase/database";
-import { addressExists, printCoords } from ".";
+import { getCoords } from ".";
+
+const addressExists = document.getElementsByClassName("addressExists")[0];
 
 
 const firebaseConfig = {
@@ -133,12 +135,25 @@ inputForm.addEventListener("submit", function (evt) {
     const street = document.getElementById("street").value;
     const number = document.getElementById("number").value;
     const area = document.getElementById("area").value;
-    const age = document.getElementById("street").value;
+    const age = document.getElementById("age").value;
     const address = `${street} ${number}, ${area}`;
 
-    savePerson(name, surname, afm, street, number, area, age);
-
-    printCoords(address);
+    savePerson(name, surname, afm, street, number, area, age);    
+    
+    (async function printCoords() {
+      try{
+      const coords = await getCoords(address);
+    if(coords) {
+    addressExists.innerHTML = `<p>Η διεύθυνσή σας έχει συντεταγμένες (${coords.lat}, ${coords.lng} )</p>`;
+    }
+    else {
+      addressExists.innerHTML =`<p>Η διεύθυνση δεν βρέθηκε</p>`
+    }
+  }
+  catch(e) {
+   console.log(e);
+  }
+  })();
 
     for (let i = 0; i < spans.length; i++) {
       spans[i].innerHTML = "";

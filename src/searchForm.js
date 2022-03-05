@@ -26,6 +26,7 @@ const searchForm = document.querySelector(".searchForm");
 const searchResults = document.getElementById("searchResults");
 
 
+
 searchForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   const searchField = document.getElementById("searchField");
@@ -43,6 +44,7 @@ searchForm.addEventListener("submit", function (evt) {
  get(personQuery).then((snapshot) => {
 	 const personsObj = snapshot.val();
 
+  searchResults.innerHTML = "";
 	for(let personKey in personsObj) {
     const {name, surname, afm, street, number, area, age} = personsObj[personKey];
 

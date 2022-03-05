@@ -1,6 +1,4 @@
-export const addressExists = document.getElementsByClassName("addressExists")[0];
-
-export async function printCoords(loc) {
+export async function getCoords(loc) {
 try {
 const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json',
 {
@@ -11,11 +9,10 @@ const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/j
 });
 
 if (response.data.status === 'ZERO_RESULTS') {
-  addressExists.textContent = 'Δεν βρέθηκε η διεύθυνση';
   return null;
   } else {
   const coords = response.data.results[0].geometry.location;
-  addressExists.innerHTML = `<p>Η διεύθυνσή σας έχει συντεταγμένες (${coords.lat}, ${coords.lng} )</p>`;
+  
   return coords;
 } 
 

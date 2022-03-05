@@ -12,6 +12,20 @@
 
 <body>
 	<h1>Address finder</h1>
+
+
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <div id="map"></div>
+		</div>
+	  
+	  </div>
+
+
+
 	<main>
 		<div class="formContainer">
 			<form action="#" method="post" autocomplete="off" class="input" novalidate>
@@ -70,6 +84,7 @@
 				</fieldset>
 			</form>
 			<ul id="searchResults">
+				
 			</ul>
 
 		</div>
@@ -80,8 +95,12 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<!-- <script src="index.js" type="module"></script>
 	<script src="form.js" type="module"></script> -->
+	<!-- <script type="module" src="../src/detailsForm.js"></script> -->
 	<script src="./main.js"></script>	
-
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJx2YoU7kJgWzz6vzxeN_Prj_tIBZKb2Q&libraries=&v=weekly"
+	  async
+    ></script>
 </body>
 
 </html>

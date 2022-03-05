@@ -171,6 +171,7 @@ fieldset > button {
   top: 120%;
   width: max-content;
   color: white;
+  cursor: pointer;
 }
 
 #searchResults li {
@@ -254,6 +255,47 @@ div.radio > fieldset:first-child {
 #map {
   height: 400px;
   width: 100%;
-  z-index: 9999;
+}
+
+/* The Modal (background) */
+.modal {  
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: visible; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {  
+ /* margin: 15% auto;  15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+  color: rgb(86, 86, 86);
+  background-color: #fefefe;
+  line-height: 1.2;
+  flex-grow: 0;
+  overflow: auto;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
