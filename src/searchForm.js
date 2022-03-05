@@ -11,6 +11,7 @@ import {
 require('../styles/reset.css');
 require('../styles/style.css');
 
+//Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAJx2YoU7kJgWzz6vzxeN_Prj_tIBZKb2Q",
   authDomain: "geocoding-340713.firebaseapp.com",
@@ -27,7 +28,6 @@ const db = getDatabase(app);
 
 const searchForm = document.querySelector(".searchForm");
 const searchResults = document.getElementById("searchResults");
-
 
 
 searchForm.addEventListener("submit", function (evt) {
@@ -57,12 +57,3 @@ searchForm.addEventListener("submit", function (evt) {
 })
   evt.target.reset();
 });
-
-
-
-
-// const que = query(ref(db,'users'),orderByChild("name"),equalTo('Βούλα'));
-
-// get(que).then((snapshot) => console.log(snapshot.val()))
-
-// const radioButtons = document.querySelectorAll('input[name="searchChoice"]');

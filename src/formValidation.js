@@ -1,14 +1,15 @@
-import { v4 as uuidv4 } from "uuid";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get, set, push } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 import { getCoords } from ".";
 
 require('../styles/reset.css');
 require('../styles/style.css');
 
 const addressExists = document.getElementsByClassName("addressExists")[0];
+const inputForm = document.getElementsByTagName("form")[0];
+const inputs = document.querySelectorAll(".input input");
 
-
+//Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAJx2YoU7kJgWzz6vzxeN_Prj_tIBZKb2Q",
   authDomain: "geocoding-340713.firebaseapp.com",
@@ -19,15 +20,9 @@ const firebaseConfig = {
   messagingSenderId: "319831745765",
   appId: "1:319831745765:web:857cab84c0c97f0d5ba00c",
 };
-
 const app = initializeApp(firebaseConfig);
 const usersRef = ref(getDatabase(app), "users");
 
-const inputForm = document.getElementsByTagName("form")[0];
-
-const afmError = document.querySelector("#afm + span");
-const submitBtn = document.getElementById("submit-btn");
-const inputs = document.querySelectorAll(".input input");
 
 //AFM validation
 function checkAFM(afm) {
@@ -42,7 +37,7 @@ function checkAFM(afm) {
   }
 }
 
-//Send data to firebase
+//Function for saving data to firebase
 function savePerson(name, surname, afm, street, number, area, age) {
   const newUserRef = push(usersRef);
   set(newUserRef, {
@@ -57,7 +52,6 @@ function savePerson(name, surname, afm, street, number, area, age) {
 }
 
 //Event Listeners
-
 [...inputs].forEach((input) =>
   input.addEventListener("input", () => {
     addressExists.textContent= "";
@@ -65,11 +59,11 @@ function savePerson(name, surname, afm, street, number, area, age) {
 
     if (id === "afm") {
       if (checkAFM(input.value)) {
-        afmError.className = "check";
-        afmError.innerHTML = "&#10003;";
+        input.nextSibling.className = "check";
+        input.nextSibling.innerHTML = "&#10003;";
       } else {
-        afmError.textContent = "Μη έγκυρο ΑΦΜ";
-        afmError.className = "error";
+        input.nextSibling.textContent = "Μη έγκυρο ΑΦΜ";
+        input.nextSibling.className = "error";
       }
     } else if (id === "age") {
       if (input.validity.patternMismatch) {
@@ -103,6 +97,8 @@ inputForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
   let personData = {};
+
+  //input validation logic
   for (let i = 0; i < inputs.length; i++) {
     let input = inputs[i];
     if (input.validity.valueMissing) {
@@ -129,6 +125,8 @@ inputForm.addEventListener("submit", function (evt) {
   }
 
   const spans = document.querySelectorAll(".check");
+
+  //Check if all fields are valid
   if (spans.length < 7) return;
   else {
     //Form elements values
@@ -158,7 +156,8 @@ inputForm.addEventListener("submit", function (evt) {
   }
   })();
 
-    for (let i = 0; i < spans.length; i++) {
+  //Empty form 
+  for (let i = 0; i < spans.length; i++) {
       spans[i].innerHTML = "";
     }
     evt.target.reset();

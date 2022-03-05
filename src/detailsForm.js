@@ -4,8 +4,6 @@ require('../styles/style.css');
 
 const searchResults = document.getElementById("searchResults")
 
-
-
 // Get the button that opens the modal
 const btn = document.getElementById("myBtn");
 
@@ -37,7 +35,6 @@ const age= person.innerText.match(/Ηλικία: (.*?)$/)[1].trim();
 
 const map = document.getElementById("map");
 
-// console.log("address: " + address + " " + "name: "+ name + " " + "surname: " + surname + " " + "afm: " + afm + " " + "age: " + age);
 map.insertAdjacentHTML('beforebegin',`<p>Όνομα: ${name}</p><p>Επώνυμο: ${surname}</p><p>Διεύθυνση: ${address}</p><p>ΑΦΜ: ${afm}</p><p>Ηλικία: ${age}</p>`);
 
 (async function () {
