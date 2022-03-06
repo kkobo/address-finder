@@ -38,7 +38,7 @@ function checkAFM(afm) {
 }
 
 //Function for saving data to firebase
-function savePerson(name, surname, afm, street, number, area, age) {
+function savePerson({name, surname, afm, street, number, area, age}) {
   const newUserRef = push(usersRef);
   set(newUserRef, {
     name: name,
@@ -95,10 +95,9 @@ function savePerson(name, surname, afm, street, number, area, age) {
 
 inputForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+  
   let personData = {};
 
-  //input validation logic
   for (let i = 0; i < inputs.length; i++) {
     let input = inputs[i];
     if (input.validity.valueMissing) {
@@ -121,25 +120,16 @@ inputForm.addEventListener("submit", function (evt) {
         input.nextSibling.className = "error";
       }
     }
-    personData[input.name] = input.value;
+    personData[input.name] = input.value.trim();
   }
 
   const spans = document.querySelectorAll(".check");
-
-  //Check if all fields are valid
-  if (spans.length < 7) return;
+  
+  if (spans.length < 7) return; //Check if all fields are valid by counting the green ticks
   else {
-    //Form elements values
-    const afm = document.getElementById("afm").value;
-    const name = document.getElementById("name").value;
-    const surname = document.getElementById("surname").value;
-    const street = document.getElementById("street").value;
-    const number = document.getElementById("number").value;
-    const area = document.getElementById("area").value;
-    const age = document.getElementById("age").value;
-    const address = `${street} ${number}, ${area}`;
+    const address = `${personData.street} ${personData.number}, ${personData.area}`;
 
-    savePerson(name, surname, afm, street, number, area, age);    
+    savePerson(personData);    
     
     (async function printCoords() {
       try{
@@ -156,7 +146,7 @@ inputForm.addEventListener("submit", function (evt) {
   }
   })();
 
-  //Empty form 
+  //Empty the form 
   for (let i = 0; i < spans.length; i++) {
       spans[i].innerHTML = "";
     }
