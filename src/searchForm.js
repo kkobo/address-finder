@@ -43,7 +43,8 @@ searchForm.addEventListener("submit", function (evt) {
     orderByChild(`${searchChoice}`),
     equalTo(`${searchField.value}`)
   );
-
+if (!searchField.value) return;
+else {
  get(personQuery).then((snapshot) => {
 	 const personsObj = snapshot.val();
 
@@ -54,6 +55,6 @@ searchForm.addEventListener("submit", function (evt) {
 	searchResults.innerHTML += `<li > Όνομα: ${name}, &nbsp; Επώνυμο: ${surname}, &nbsp; ΑΦΜ: ${afm} <br> 
 	Διεύθυνση: ${street} ${number}, ${area}, &nbsp; Ηλικία: ${age}</li>`
 	}
-})
+})}
   evt.target.reset();
 });
