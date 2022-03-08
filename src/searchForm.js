@@ -47,8 +47,15 @@ if (!searchField.value) return;
 else {
  get(personQuery).then((snapshot) => {
 	 const personsObj = snapshot.val();
-
   searchResults.innerHTML = "";
+
+  if(!personsObj) { 
+    const noResults = document.getElementById('no-results');
+    noResults.innerHTML = `<p>Δεν υπάρχει στον κατάλογο το άτομο με το συγκεκριμένο ${searchChoice === "name" ? "όνομα" : "ΑΦΜ"} </p>`; 
+    setTimeout(()=>{      
+      noResults.innerHTML = "";
+    },3000)
+  }
 	for(let personKey in personsObj) {
     const {name, surname, afm, street, number, area, age} = personsObj[personKey];
 

@@ -237,7 +237,6 @@ div.radio > fieldset:first-child {
 
 .addressExists {
   margin-bottom: 3rem;
-  background: #fcff4b;
   color: black;
 }
 
@@ -245,6 +244,17 @@ div.radio > fieldset:first-child {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+}
+
+#no-results {
+  position: absolute;
+  top: 120%;
+}
+
+#no-results > p {
+  background-color: beige;
+  padding: 4px;
+  color: black;
 }
 
 #detailsForm {
